@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
 import Button from '../ui/Button';
+import { useNavigate } from 'react-router-dom';
 
 const Cta = () => {
+  const navigate = useNavigate();
   return (
     <section className="py-20 lg:py-32 bg-brand-main text-white">
       <div className="container mx-auto px-6 lg:px-12 relative z-10 text-center">
@@ -19,10 +21,10 @@ const Cta = () => {
             Partner with Pihu Logistics for a technology-driven, robust, and highly efficient logistics network that scales with your ambition.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button variant="secondary" className="w-full sm:w-auto">
+            <Button variant="secondary" className="w-full sm:w-auto" onClick={() => navigate('/contact')}>
               Contact Sales
             </Button>
-            <Button variant="outline" className="w-full sm:w-auto border-white text-white hover:bg-white hover:text-brand-main">
+            <Button variant="outline" className="w-full sm:w-auto border-white text-white hover:bg-white hover:text-brand-main" onClick={() => navigate('/contact')}>
               Request a Quote
             </Button>
           </div>

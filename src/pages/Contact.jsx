@@ -1,9 +1,30 @@
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Section from '../components/ui/Section';
 import Button from '../components/ui/Button';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, CheckCircle } from 'lucide-react';
 
 const Contact = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate API submission
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSuccess(true);
+      
+      // Reset form success message after 5 seconds
+      setTimeout(() => {
+        setIsSuccess(false);
+        e.target.reset(); // Native reset over DOM
+      }, 5000);
+    }, 1500);
+  };
+
   return (
     <div className="pt-24 bg-brand-light/30 min-h-screen">
       <Section>
@@ -53,24 +74,42 @@ const Contact = () => {
           </div>
 
           <div className="lg:w-2/3">
-            <div className="bg-white p-6 lg:p-12 rounded-lg border border-slate-200 shadow-sm">
+            <div className="bg-white p-6 lg:p-12 rounded-lg border border-slate-200 shadow-sm relative overflow-hidden">
               <h3 className="text-xl lg:text-2xl font-bold text-brand-dark mb-6 lg:mb-8 tracking-tight">Business Inquiry</h3>
-              <form className="space-y-5 lg:space-y-6" onSubmit={(e) => e.preventDefault()}>
+              
+              <AnimatePresence>
+                {isSuccess && (
+                  <motion.div 
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    className="absolute inset-0 z-20 bg-white flex flex-col items-center justify-center p-8 text-center"
+                  >
+                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 text-green-600 mx-auto">
+                      <CheckCircle size={32} />
+                    </div>
+                    <h3 className="text-2xl font-bold text-brand-dark mb-4">Inquiry Submitted</h3>
+                    <p className="text-slate-600 max-w-sm mx-auto">Thank you for reaching out. One of our logistics experts will contact you within 24 hours.</p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              <form className="space-y-5 lg:space-y-6 relative z-10" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6">
                   <div>
                     <label className="block text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">Contact Name</label>
-                    <input type="text" className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-md focus:outline-none focus:ring-1 focus:ring-brand-main focus:border-brand-main transition-colors text-sm" placeholder="Your Name" />
+                    <input required type="text" className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-md focus:outline-none focus:ring-1 focus:ring-brand-main focus:border-brand-main transition-colors text-sm" placeholder="Your Name" />
                   </div>
                   <div>
                     <label className="block text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">Organization</label>
-                    <input type="text" className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-md focus:outline-none focus:ring-1 focus:ring-brand-main focus:border-brand-main transition-colors text-sm" placeholder="Company Name" />
+                    <input required type="text" className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-md focus:outline-none focus:ring-1 focus:ring-brand-main focus:border-brand-main transition-colors text-sm" placeholder="Company Name" />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6">
                   <div>
                     <label className="block text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">Corporate Email</label>
-                    <input type="email" className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-md focus:outline-none focus:ring-1 focus:ring-brand-main focus:border-brand-main transition-colors text-sm" placeholder="name@company.com" />
+                    <input required type="email" className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-md focus:outline-none focus:ring-1 focus:ring-brand-main focus:border-brand-main transition-colors text-sm" placeholder="name@company.com" />
                   </div>
                   <div>
                     <label className="block text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">Area of Interest</label>
@@ -85,11 +124,13 @@ const Contact = () => {
 
                 <div>
                   <label className="block text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">Project Details</label>
-                  <textarea rows={4} className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-md focus:outline-none focus:ring-1 focus:ring-brand-main focus:border-brand-main transition-colors text-sm" placeholder="Briefly describe your logistics requirements..."></textarea>
+                  <textarea required rows={4} className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-md focus:outline-none focus:ring-1 focus:ring-brand-main focus:border-brand-main transition-colors text-sm" placeholder="Briefly describe your logistics requirements..."></textarea>
                 </div>
 
-                <div className="pt-2">
-                  <Button className="w-full hover:bg-brand-main hover:text-white border border-transparent">Submit Inquiry</Button>
+                <div className="pt-2 relative">
+                  <Button disabled={isSubmitting} className="w-full hover:bg-brand-main hover:text-white border border-transparent disabled:opacity-70 disabled:cursor-not-allowed">
+                    {isSubmitting ? 'Sending Request...' : 'Submit Inquiry'}
+                  </Button>
                 </div>
               </form>
             </div>

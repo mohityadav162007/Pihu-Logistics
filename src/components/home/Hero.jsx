@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion';
 import Button from '../ui/Button';
+import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="relative pt-32 pb-16 lg:pt-52 lg:pb-40 bg-brand-light/30">
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
@@ -42,10 +45,10 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3, ease: [0.21, 0.47, 0.32, 0.98] }}
           >
-            <Button variant="primary" className="w-full sm:w-auto">
+            <Button variant="primary" className="w-full sm:w-auto" onClick={() => navigate('/contact')}>
               Partner With Us
             </Button>
-            <Button variant="outline" className="w-full sm:w-auto">
+            <Button variant="outline" className="w-full sm:w-auto" onClick={() => navigate('/services')}>
               Explore Services
             </Button>
           </motion.div>
