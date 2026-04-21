@@ -3,11 +3,11 @@ import Section from '../ui/Section';
 
 const Industries = () => {
   const industries = [
-    { name: "Automotive Parts", image: "https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?q=80&w=2070&auto=format&fit=crop" },
-    { name: "White Goods", image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2070&auto=format&fit=crop" },
-    { name: "Specialized Chemicals", image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=2070&auto=format&fit=crop" },
-    { name: "Retail & FMCG", image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop" },
-    { name: "Heavy Engineering", image: "https://images.unsplash.com/photo-1563245372-f21724e3856d?q=80&w=2129&auto=format&fit=crop" }
+    { name: "Automotive Parts", image: "https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?q=80&w=2070&auto=format&fit=crop", color: 'bg-blue-500' },
+    { name: "White Goods", image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2070&auto=format&fit=crop", color: 'bg-indigo-500' },
+    { name: "Specialized Chemicals", image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=2070&auto=format&fit=crop", color: 'bg-emerald-500' },
+    { name: "Retail & FMCG", image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop", color: 'bg-amber-500' },
+    { name: "Heavy Engineering", image: "https://images.unsplash.com/photo-1563245372-f21724e3856d?q=80&w=2129&auto=format&fit=crop", color: 'bg-cyan-500' }
   ];
 
   return (
@@ -36,7 +36,7 @@ const Industries = () => {
             />
             <div className="absolute bottom-8 left-8 z-20">
               <h4 className="text-xl font-bold text-white tracking-wide">{ind.name}</h4>
-              <div className="w-8 h-1 bg-brand-main mt-3 transform origin-left group-hover:w-16 transition-all duration-500"></div>
+              <div className={`w-8 h-1 ${ind.color} mt-3 transform origin-left group-hover:w-16 transition-all duration-500`}></div>
             </div>
           </motion.div>
         ))}

@@ -57,7 +57,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-brand-dark text-base lg:text-lg mb-1 tracking-tight">Direct Line</h4>
-                  <p className="text-slate-600 text-sm">+91 (XXX) XXX-XXXX</p>
+                  <p className="text-slate-600 text-sm">+91 9993552893</p>
                 </div>
               </div>
 
