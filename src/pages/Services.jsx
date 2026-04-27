@@ -1,93 +1,104 @@
 import { motion } from 'framer-motion';
-import Section from '../components/ui/Section';
-import { Warehouse, Truck, Settings, Package, ArrowRight } from 'lucide-react';
+import { Warehouse, Truck, Settings, Globe, ArrowRight } from 'lucide-react';
+import containerYard from '../assets/container_yard.png';
+import warehouseHero from '../assets/warehouse_hero.png';
 
 const Services = () => {
   const allServices = [
     {
       id: 'warehousing',
-      icon: <Warehouse size={32} className="text-brand-main" />,
+      icon: <Warehouse size={24} />,
       title: 'Advanced Warehousing',
-      description: 'Our 50,000+ sqft centralized processing hub is equipped with state-of-the-art infrastructure. We manage your inventory with high precision utilizing both mezzanine racks and expansive ground storage to optimize space and accessibility.',
-      features: ['Automated Scanning Operations', 'Inventory Handling Systems', 'SKU-level tracking', 'Stringent HSE Practices']
+      description: 'Our 50,000+ sqft centralized processing hub is equipped with state-of-the-art infrastructure. We manage your inventory with high precision utilizing both mezzanine racks and expansive ground storage.',
+      features: ['Automated Scanning', 'Inventory Handling', 'SKU-level tracking', 'HSE Practices'],
+      image: warehouseHero
     },
     {
       id: 'transportation',
-      icon: <Truck size={32} className="text-brand-main" />,
-      title: 'Domestic Transport & Last Mile',
-      description: 'End-to-end transportation solutions ensuring your goods reach their destination safely and on time. We specialize in secondary transportation and complex last-mile delivery networks covering major geographies.',
-      features: ['Pan-India Network', 'Fleet Management', 'Real-time GPS Tracking', 'Optimized Routing Algorithms']
+      icon: <Truck size={24} />,
+      title: 'Domestic Transport',
+      description: 'End-to-end transportation solutions ensuring your goods reach their destination safely and on time. We specialize in secondary transportation and complex last-mile delivery networks.',
+      features: ['Pan-India Network', 'Fleet Management', 'GPS Tracking', 'Optimized Routing'],
+      image: containerYard
     },
     {
       id: '3pl',
-      icon: <Settings size={32} className="text-brand-main" />,
-      title: 'Customized Logistics (3PL)',
-      description: 'We orchestrate your entire supply chain. From managing intricate vendor relations to handling complex port clearance and freight management, we tailor our 3PL solutions to fit your unique operational footprint.',
-      features: ['Vendor Management', 'Port Handling & Clearance', 'Freight Contract Management', 'Centralized Order Processing']
+      icon: <Settings size={24} />,
+      title: 'Customized Logistics',
+      description: 'We orchestrate your entire supply chain. From managing intricate vendor relations to handling complex port clearance and freight management, we tailor our 3PL solutions.',
+      features: ['Vendor Management', 'Port Handling', 'Freight Management', 'Order Processing'],
+      image: warehouseHero
     },
     {
-      id: 'vas',
-      icon: <Package size={32} className="text-brand-main" />,
-      title: 'Value Added Services',
-      description: 'Beyond basic movement and storage, we offer a specialized suite of value-added services that prepare your products perfectly for the end consumer, e-commerce fulfillment, or dealer distribution network.',
-      features: ['Repacking & Custom Labeling', 'Barcode Stickering', 'Strict Quality Check (QC)', 'E-commerce Readiness']
+      id: 'digital',
+      icon: <Globe size={24} />,
+      title: 'Digital Integrations',
+      description: 'Cloud dashboards, shipment status, milestone alerts and proof-of-delivery workflows that keep teams aligned. We provide tech-first visibility into every movement.',
+      features: ['Live Dashboards', 'API Integrations', 'Real-time Alerts', 'Online POD'],
+      image: containerYard
     }
   ];
 
   return (
-    <div className="pt-24 bg-brand-light/30">
-      <div className="bg-white border-b border-slate-200 py-16 lg:py-24">
-        <div className="container mx-auto px-6 lg:px-12 text-center max-w-4xl">
-          <motion.h1 
+    <div className="bg-brand-light">
+      {/* Hero Header */}
+      <section className="pt-40 pb-20 bg-brand-dark text-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-brand-blue/10 blur-[120px]" />
+        <div className="container mx-auto px-6 lg:px-12 relative z-10">
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-3xl md:text-5xl lg:text-6xl font-bold text-brand-dark mb-4 lg:mb-6 tracking-tight"
+            className="max-w-3xl"
           >
-            Capabilities & <span className="text-brand-main">Services</span>
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-lg md:text-xl text-slate-600 leading-relaxed"
-          >
-            Comprehensive, technology-driven solutions architected for every critical step of your modern supply chain operation.
-          </motion.p>
+            <div className="text-brand-blue font-bold tracking-widest text-[10px] mb-4 uppercase">Capabilities</div>
+            <h1 className="text-5xl lg:text-7xl font-bold mb-8 leading-tight tracking-tight">
+              Comprehensive <br />
+              Logistics <span className="text-brand-blue">Solutions.</span>
+            </h1>
+            <p className="text-lg text-slate-400 max-w-xl leading-relaxed">
+              We provide technology-driven infrastructure that empowers Indian businesses to scale without operational friction.
+            </p>
+          </motion.div>
         </div>
-      </div>
+      </section>
 
-      <Section>
-        <div className="space-y-20 lg:space-y-32">
+      {/* Services List */}
+      <section className="py-24">
+        <div className="container mx-auto px-6 lg:px-12 space-y-12">
           {allServices.map((svc, index) => (
-            <div key={svc.id} className={`flex flex-col lg:flex-row gap-8 lg:gap-24 items-center ${index % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}>
-              <div className="lg:w-1/2">
-                <div className="mb-4 lg:mb-6 inline-flex p-3 lg:p-4 rounded-lg bg-white border border-slate-200 shadow-sm">
+            <motion.div
+              key={svc.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="glass-card rounded-[2.5rem] bg-white overflow-hidden border border-slate-100 flex flex-col lg:flex-row"
+            >
+              <div className="flex-1 p-10 lg:p-16 flex flex-col justify-center">
+                <div className="w-12 h-12 bg-brand-blue/10 rounded-2xl flex items-center justify-center text-brand-blue mb-8">
                   {svc.icon}
                 </div>
-                <h3 className="text-2xl lg:text-3xl font-bold text-brand-dark mb-4 lg:mb-6 tracking-tight">{svc.title}</h3>
-                <p className="text-slate-600 text-base lg:text-lg mb-8 lg:mb-10 leading-relaxed">
+                <h3 className="text-3xl font-bold text-brand-dark mb-6">{svc.title}</h3>
+                <p className="text-slate-500 leading-relaxed mb-10 text-lg">
                   {svc.description}
                 </p>
-                
-                <h4 className="font-semibold text-brand-dark mb-4 lg:mb-5 tracking-wide text-xs lg:text-sm uppercase">Key Competencies</h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6">
-                  {svc.features.map((feat, i) => (
-                    <div key={i} className="flex items-start">
-                      <ArrowRight size={18} className="text-brand-main mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-slate-700 font-medium text-sm leading-snug">{feat}</span>
+                <div className="grid grid-cols-2 gap-4">
+                  {svc.features.map((feat) => (
+                    <div key={feat} className="flex items-center gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-brand-blue" />
+                      <span className="text-xs font-bold text-brand-dark uppercase tracking-wider">{feat}</span>
                     </div>
                   ))}
                 </div>
               </div>
-              <div className="lg:w-1/2 w-full mt-6 lg:mt-0">
-                <div className="aspect-[4/3] bg-slate-200 rounded-lg overflow-hidden border border-slate-200 shadow-sm">
-                  <img src="https://images.unsplash.com/photo-1542296332-2e4473faf563?q=80&w=2070&auto=format&fit=crop" alt={svc.title} className="w-full h-full object-cover" />
-                </div>
+              <div className="lg:w-2/5 relative min-h-[300px]">
+                <img src={svc.image} alt={svc.title} className="absolute inset-0 w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-brand-blue/10" />
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
-      </Section>
+      </section>
     </div>
   );
 };

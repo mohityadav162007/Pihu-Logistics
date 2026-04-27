@@ -1,23 +1,19 @@
 import Hero from '../components/home/Hero';
-import TrustStrip from '../components/home/TrustStrip';
 import ServicesOverview from '../components/home/ServicesOverview';
-import Usps from '../components/home/Usps';
 import Stats from '../components/home/Stats';
-import Industries from '../components/home/Industries';
-import Clients from '../components/home/Clients';
-import Cta from '../components/home/Cta';
+import Workflow from '../components/home/Workflow';
+import CTASection from '../components/home/CTASection';
+import AboutUsSection from '../components/home/AboutUsSection';
 
 const Home = () => {
   return (
-    <div className="animate-fade-in">
+    <div className="bg-brand-light">
       <Hero />
-      <TrustStrip />
-      <ServicesOverview />
-      <Usps />
       <Stats />
-      <Industries />
-      <Clients />
-      <Cta />
+      <ServicesOverview />
+      <Workflow />
+      <AboutUsSection />
+      <CTASection />
     </div>
   );
 };

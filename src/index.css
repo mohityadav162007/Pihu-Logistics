@@ -8,4 +8,25 @@
   html {
     scroll-behavior: smooth;
   }
+  body {
+    @apply bg-brand-light text-brand-dark overflow-x-hidden;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-glass;
+  }
+  
+  .btn-primary {
+    @apply bg-brand-blue text-white px-8 py-3 rounded-xl font-semibold transition-all duration-300 hover:bg-brand-accent hover:shadow-lg hover:-translate-y-1 active:scale-95;
+  }
+  
+  .btn-secondary {
+    @apply bg-white text-brand-blue px-8 py-3 rounded-xl font-semibold border border-brand-blue/10 transition-all duration-300 hover:bg-brand-light hover:shadow-md hover:-translate-y-1 active:scale-95;
+  }
+
+  .nav-link {
+    @apply text-brand-dark/70 font-medium transition-colors hover:text-brand-blue text-sm tracking-wide uppercase;
+  }
 }

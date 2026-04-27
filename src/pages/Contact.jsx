@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Section from '../components/ui/Section';
-import Button from '../components/ui/Button';
-import { Mail, Phone, MapPin, CheckCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, CheckCircle, Send } from 'lucide-react';
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -11,132 +9,143 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate API submission
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSuccess(true);
-      
-      // Reset form success message after 5 seconds
-      setTimeout(() => {
-        setIsSuccess(false);
-        e.target.reset(); // Native reset over DOM
-      }, 5000);
+      setTimeout(() => setIsSuccess(false), 5000);
     }, 1500);
   };
 
   return (
-    <div className="pt-24 bg-brand-light/30 min-h-screen">
-      <Section>
-        <div className="max-w-4xl mb-12 lg:mb-16">
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-brand-dark mb-4 lg:mb-6 tracking-tight">Connect With Us</h1>
-          <p className="text-lg md:text-xl text-slate-600 leading-relaxed">Ready to experience logistics with a digital advantage? Initiate a conversation with our logistics architects today.</p>
+    <div className="bg-brand-light">
+      {/* Hero Header */}
+      <section className="pt-40 pb-20 bg-brand-dark text-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-brand-blue/10 blur-[120px]" />
+        <div className="container mx-auto px-6 lg:px-12 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="max-w-3xl"
+          >
+            <div className="text-brand-blue font-bold tracking-widest text-[10px] mb-4 uppercase">Contact</div>
+            <h1 className="text-5xl lg:text-7xl font-bold mb-8 leading-tight tracking-tight">
+              Connect with our <br />
+              Logistics <span className="text-brand-blue">Architects.</span>
+            </h1>
+            <p className="text-lg text-slate-400 max-w-xl leading-relaxed">
+              Ready to experience logistics with a digital advantage? Initiate a conversation about your supply chain today.
+            </p>
+          </motion.div>
         </div>
+      </section>
 
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
-          <div className="lg:w-1/3">
-            <h3 className="text-xl lg:text-2xl font-bold text-brand-dark mb-6 lg:mb-8 tracking-tight">Corporate Directory</h3>
-            
-            <div className="space-y-8 lg:space-y-10">
-              <div className="flex items-start">
-                <div className="mt-1 mr-4 text-brand-main">
-                  <MapPin size={24} />
+      {/* Main Contact Section */}
+      <section className="py-24">
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
+            {/* Contact Info */}
+            <div className="lg:w-1/3">
+              <h3 className="text-3xl font-bold text-brand-dark mb-12 tracking-tight">Corporate Directory</h3>
+              <div className="space-y-12">
+                <div className="flex items-start gap-6">
+                  <div className="w-12 h-12 rounded-2xl bg-brand-blue/10 flex items-center justify-center text-brand-blue flex-shrink-0">
+                    <MapPin size={24} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-brand-dark mb-2 text-lg">Central Hub</h4>
+                    <p className="text-slate-500 leading-relaxed">
+                      50,000+ sqft Processing Hub<br />
+                      Central India Regional HQ
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-semibold text-brand-dark text-base lg:text-lg mb-1 tracking-tight">Headquarters</h4>
-                  <p className="text-slate-600 text-sm leading-relaxed">
-                    50,000+ sqft Processing Hub<br />
-                    Central India
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex items-start">
-                <div className="mt-1 mr-4 text-brand-main">
-                  <Phone size={24} />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-brand-dark text-base lg:text-lg mb-1 tracking-tight">Direct Line</h4>
-                  <p className="text-slate-600 text-sm">+91 9993552893</p>
-                </div>
-              </div>
 
-              <div className="flex items-start">
-                <div className="mt-1 mr-4 text-brand-main">
-                  <Mail size={24} />
+                <div className="flex items-start gap-6">
+                  <div className="w-12 h-12 rounded-2xl bg-brand-blue/10 flex items-center justify-center text-brand-blue flex-shrink-0">
+                    <Phone size={24} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-brand-dark mb-2 text-lg">Direct Line</h4>
+                    <p className="text-slate-500 leading-relaxed font-bold text-xl">+91 9993552893</p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-semibold text-brand-dark text-base lg:text-lg mb-1 tracking-tight">Communicate</h4>
-                  <p className="text-slate-600 text-sm">commercial@pihulogistics.com</p>
+
+                <div className="flex items-start gap-6">
+                  <div className="w-12 h-12 rounded-2xl bg-brand-blue/10 flex items-center justify-center text-brand-blue flex-shrink-0">
+                    <Mail size={24} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-brand-dark mb-2 text-lg">Electronic Mail</h4>
+                    <p className="text-slate-500 leading-relaxed">commercial@pihulogistics.com</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div className="lg:w-2/3">
-            <div className="bg-white p-6 lg:p-12 rounded-lg border border-slate-200 shadow-sm relative overflow-hidden">
-              <h3 className="text-xl lg:text-2xl font-bold text-brand-dark mb-6 lg:mb-8 tracking-tight">Business Inquiry</h3>
-              
-              <AnimatePresence>
-                {isSuccess && (
-                  <motion.div 
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    className="absolute inset-0 z-20 bg-white flex flex-col items-center justify-center p-8 text-center"
-                  >
-                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 text-green-600 mx-auto">
-                      <CheckCircle size={32} />
+            {/* Form */}
+            <div className="lg:w-2/3">
+              <div className="glass-card bg-white p-10 lg:p-16 rounded-[3rem] border border-slate-100 shadow-xl relative overflow-hidden">
+                <h3 className="text-3xl font-bold text-brand-dark mb-10 tracking-tight">Business Inquiry</h3>
+                
+                <AnimatePresence>
+                  {isSuccess && (
+                    <motion.div 
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      className="absolute inset-0 z-20 bg-white flex flex-col items-center justify-center p-12 text-center"
+                    >
+                      <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-8 text-green-600">
+                        <CheckCircle size={40} />
+                      </div>
+                      <h3 className="text-3xl font-bold text-brand-dark mb-4">Request Submitted</h3>
+                      <p className="text-slate-500 max-w-sm">One of our logistics experts will review your requirements and contact you within 24 hours.</p>
+                      <button onClick={() => setIsSuccess(false)} className="mt-10 text-brand-blue font-bold uppercase tracking-widest text-[10px]">Send another inquiry</button>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+                <form className="space-y-8" onSubmit={handleSubmit}>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="space-y-3">
+                      <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest ml-1">Your Name</label>
+                      <input required type="text" className="w-full px-6 py-5 bg-slate-50 rounded-2xl border-none focus:ring-2 focus:ring-brand-blue/20 transition-all font-medium text-brand-dark" placeholder="Mohit Yadav" />
                     </div>
-                    <h3 className="text-2xl font-bold text-brand-dark mb-4">Inquiry Submitted</h3>
-                    <p className="text-slate-600 max-w-sm mx-auto">Thank you for reaching out. One of our logistics experts will contact you within 24 hours.</p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-
-              <form className="space-y-5 lg:space-y-6 relative z-10" onSubmit={handleSubmit}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6">
-                  <div>
-                    <label className="block text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">Contact Name</label>
-                    <input required type="text" className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-md focus:outline-none focus:ring-1 focus:ring-brand-main focus:border-brand-main transition-colors text-sm" placeholder="Your Name" />
+                    <div className="space-y-3">
+                      <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest ml-1">Company Name</label>
+                      <input required type="text" className="w-full px-6 py-5 bg-slate-50 rounded-2xl border-none focus:ring-2 focus:ring-brand-blue/20 transition-all font-medium text-brand-dark" placeholder="Logistics Corp" />
+                    </div>
                   </div>
-                  <div>
-                    <label className="block text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">Organization</label>
-                    <input required type="text" className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-md focus:outline-none focus:ring-1 focus:ring-brand-main focus:border-brand-main transition-colors text-sm" placeholder="Company Name" />
-                  </div>
-                </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6">
-                  <div>
-                    <label className="block text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">Corporate Email</label>
-                    <input required type="email" className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-md focus:outline-none focus:ring-1 focus:ring-brand-main focus:border-brand-main transition-colors text-sm" placeholder="name@company.com" />
+                  <div className="space-y-3">
+                    <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest ml-1">Work Email</label>
+                    <input required type="email" className="w-full px-6 py-5 bg-slate-50 rounded-2xl border-none focus:ring-2 focus:ring-brand-blue/20 transition-all font-medium text-brand-dark" placeholder="mohit@company.com" />
                   </div>
-                  <div>
-                    <label className="block text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">Area of Interest</label>
-                    <select className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-md focus:outline-none focus:ring-1 focus:ring-brand-main focus:border-brand-main transition-colors text-sm appearance-none cursor-pointer">
-                      <option>Intelligent Warehousing</option>
-                      <option>Domestic Distribution (3PL)</option>
-                      <option>Value Added Processing</option>
-                      <option>General Inquiry</option>
-                    </select>
+
+                  <div className="space-y-3">
+                    <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest ml-1">Requirement Details</label>
+                    <textarea required rows={4} className="w-full px-6 py-5 bg-slate-50 rounded-2xl border-none focus:ring-2 focus:ring-brand-blue/20 transition-all font-medium text-brand-dark resize-none" placeholder="Briefly describe your logistics volume and routes..."></textarea>
                   </div>
-                </div>
 
-                <div>
-                  <label className="block text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">Project Details</label>
-                  <textarea required rows={4} className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-md focus:outline-none focus:ring-1 focus:ring-brand-main focus:border-brand-main transition-colors text-sm" placeholder="Briefly describe your logistics requirements..."></textarea>
-                </div>
-
-                <div className="pt-2 relative">
-                  <Button disabled={isSubmitting} className="w-full hover:bg-brand-main hover:text-white border border-transparent disabled:opacity-70 disabled:cursor-not-allowed">
-                    {isSubmitting ? 'Sending Request...' : 'Submit Inquiry'}
-                  </Button>
-                </div>
-              </form>
+                  <button 
+                    disabled={isSubmitting} 
+                    className="w-full bg-brand-dark text-white py-6 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 transition-transform hover:scale-[1.01] active:scale-[0.99] disabled:opacity-70 shadow-lg shadow-brand-dark/10"
+                  >
+                    {isSubmitting ? (
+                      "Processing Request..."
+                    ) : (
+                      <>
+                        <Send size={20} />
+                        Submit Business Inquiry
+                      </>
+                    )}
+                  </button>
+                </form>
+              </div>
             </div>
           </div>
         </div>
-      </Section>
+      </section>
     </div>
   );
 };
