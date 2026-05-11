@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import Section from '../ui/Section';
 
 const Clients = () => {
@@ -13,7 +13,7 @@ const Clients = () => {
       
       <div className="flex flex-wrap justify-center items-center gap-16 lg:gap-32">
         {logos.map((logo, index) => (
-          <motion.div
+          <Motion.div
             key={index}
             className="text-xl font-bold tracking-widest text-slate-400 hover:text-brand-dark transition-colors duration-300 select-none grayscale hover:grayscale-0"
             initial={{ opacity: 0 }}
@@ -22,7 +22,7 @@ const Clients = () => {
             transition={{ delay: index * 0.1, duration: 0.8 }}
           >
             {logo}
-          </motion.div>
+          </Motion.div>
         ))}
       </div>
     </Section>

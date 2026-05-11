@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 
 const Button = ({ children, variant = 'primary', className = '', ...props }) => {
   const baseStyles = "px-8 py-4 rounded-md font-semibold text-sm tracking-wide transition-all duration-300 inline-flex items-center justify-center focus:outline-none";
@@ -10,14 +10,14 @@ const Button = ({ children, variant = 'primary', className = '', ...props }) => 
   };
 
   return (
-    <motion.button
+    <Motion.button
       whileHover={{ y: -2 }}
       whileTap={{ y: 0 }}
       className={`${baseStyles} ${variants[variant]} ${className}`}
       {...props}
     >
       {children}
-    </motion.button>
+    </Motion.button>
   );
 };
 

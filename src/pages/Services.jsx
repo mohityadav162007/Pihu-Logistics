@@ -1,9 +1,13 @@
-import { motion } from 'framer-motion';
-import { Warehouse, Truck, Settings, Globe, ArrowRight } from 'lucide-react';
-import containerYard from '../assets/container_yard.png';
-import warehouseHero from '../assets/warehouse_hero.png';
+import { motion as Motion } from 'framer-motion';
+import { Warehouse, Truck, Settings, Globe } from 'lucide-react';
+import { useSiteImage } from '../hooks/useSiteImage';
 
 const Services = () => {
+  const warehousingImage = useSiteImage('serviceWarehousingImage');
+  const transportImage = useSiteImage('serviceTransportImage');
+  const customizedImage = useSiteImage('serviceCustomizedImage');
+  const digitalImage = useSiteImage('serviceDigitalImage');
+
   const allServices = [
     {
       id: 'warehousing',
@@ -11,7 +15,7 @@ const Services = () => {
       title: 'Advanced Warehousing',
       description: 'Our 50,000+ sqft centralized processing hub is equipped with state-of-the-art infrastructure. We manage your inventory with high precision utilizing both mezzanine racks and expansive ground storage.',
       features: ['Automated Scanning', 'Inventory Handling', 'SKU-level tracking', 'HSE Practices'],
-      image: warehouseHero
+      image: warehousingImage
     },
     {
       id: 'transportation',
@@ -19,7 +23,7 @@ const Services = () => {
       title: 'Domestic Transport',
       description: 'End-to-end transportation solutions ensuring your goods reach their destination safely and on time. We specialize in secondary transportation and complex last-mile delivery networks.',
       features: ['Pan-India Network', 'Fleet Management', 'GPS Tracking', 'Optimized Routing'],
-      image: containerYard
+      image: transportImage
     },
     {
       id: '3pl',
@@ -27,7 +31,7 @@ const Services = () => {
       title: 'Customized Logistics',
       description: 'We orchestrate your entire supply chain. From managing intricate vendor relations to handling complex port clearance and freight management, we tailor our 3PL solutions.',
       features: ['Vendor Management', 'Port Handling', 'Freight Management', 'Order Processing'],
-      image: warehouseHero
+      image: customizedImage
     },
     {
       id: 'digital',
@@ -35,7 +39,7 @@ const Services = () => {
       title: 'Digital Integrations',
       description: 'Cloud dashboards, shipment status, milestone alerts and proof-of-delivery workflows that keep teams aligned. We provide tech-first visibility into every movement.',
       features: ['Live Dashboards', 'API Integrations', 'Real-time Alerts', 'Online POD'],
-      image: containerYard
+      image: digitalImage
     }
   ];
 
@@ -45,7 +49,7 @@ const Services = () => {
       <section className="pt-40 pb-20 bg-brand-dark text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-brand-blue/10 blur-[120px]" />
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="max-w-3xl"
@@ -58,7 +62,7 @@ const Services = () => {
             <p className="text-lg text-slate-400 max-w-xl leading-relaxed">
               We provide technology-driven infrastructure that empowers Indian businesses to scale without operational friction.
             </p>
-          </motion.div>
+          </Motion.div>
         </div>
       </section>
 
@@ -66,7 +70,7 @@ const Services = () => {
       <section className="py-24">
         <div className="container mx-auto px-6 lg:px-12 space-y-12">
           {allServices.map((svc, index) => (
-            <motion.div
+            <Motion.div
               key={svc.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -95,7 +99,7 @@ const Services = () => {
                 <img src={svc.image} alt={svc.title} className="absolute inset-0 w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-brand-blue/10" />
               </div>
-            </motion.div>
+            </Motion.div>
           ))}
         </div>
       </section>

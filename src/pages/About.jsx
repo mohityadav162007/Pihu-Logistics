@@ -1,15 +1,16 @@
-import { motion } from 'framer-motion';
-import containerYard from '../assets/container_yard.png';
-import warehouseHero from '../assets/warehouse_hero.png';
+import { motion as Motion } from 'framer-motion';
+import { useSiteImage } from '../hooks/useSiteImage';
 
 const About = () => {
+  const historyImage = useSiteImage('aboutHistoryImage');
+
   return (
     <div className="bg-brand-light">
       {/* Hero Header */}
       <section className="pt-40 pb-20 bg-brand-dark text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-brand-blue/10 blur-[120px]" />
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="max-w-3xl"
@@ -20,9 +21,9 @@ const About = () => {
               <span className="text-brand-blue">Supply Chains.</span>
             </h1>
             <p className="text-lg text-slate-400 max-w-xl leading-relaxed">
-              Since 2017, Pihu Logistics has been building the physical and digital backbone for businesses that demand reliability and scale.
+              Since 2010, Pihu Logistics has been building the physical and digital backbone for businesses that demand reliability and scale.
             </p>
-          </motion.div>
+          </Motion.div>
         </div>
       </section>
 
@@ -31,16 +32,16 @@ const About = () => {
         <div className="container mx-auto px-6 lg:px-12">
           <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
             <div className="lg:w-1/2">
-              <motion.div
+              <Motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 className="text-brand-blue font-bold tracking-widest text-[10px] mb-4 uppercase"
               >
                 History
-              </motion.div>
+              </Motion.div>
               <h2 className="text-4xl font-bold text-brand-dark mb-8 leading-tight tracking-tight">
-                Structured for Scale Since 2017
+                Structured for Scale Since 2010
               </h2>
               <div className="space-y-6 text-slate-600 leading-relaxed text-lg">
                 <p>
@@ -52,14 +53,14 @@ const About = () => {
               </div>
             </div>
             <div className="lg:w-1/2">
-              <motion.div
+              <Motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 className="rounded-3xl overflow-hidden shadow-2xl border border-slate-100"
               >
-                <img src={warehouseHero} alt="Warehouse Operations" className="w-full h-[400px] object-cover" />
-              </motion.div>
+                <img src={historyImage} alt="Warehouse Operations" className="w-full h-[400px] object-cover" />
+              </Motion.div>
             </div>
           </div>
         </div>
@@ -94,7 +95,7 @@ const About = () => {
                 val: "100% Adherence"
               }
             ].map((item, i) => (
-              <motion.div 
+              <Motion.div 
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -105,7 +106,7 @@ const About = () => {
                 <h3 className="text-xl font-bold mb-4">{item.title}</h3>
                 <p className="text-slate-400 text-sm leading-relaxed mb-6">{item.desc}</p>
                 <div className="text-[10px] font-bold text-brand-blue uppercase tracking-[0.2em]">{item.val}</div>
-              </motion.div>
+              </Motion.div>
             ))}
           </div>
         </div>
@@ -118,7 +119,7 @@ const About = () => {
             {[
               { val: "50,000+", lab: "Sq Ft Warehouse" },
               { val: "100+", lab: "Team Members" },
-              { val: "2017", lab: "Founded Year" },
+              { val: "2010", lab: "Founded Year" },
               { val: "100%", lab: "Compliance" }
             ].map((stat, i) => (
               <div key={i}>

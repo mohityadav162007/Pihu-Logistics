@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import Button from '../ui/Button';
 import { useNavigate } from 'react-router-dom';
 
@@ -10,7 +10,7 @@ const Cta = () => {
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-white/5 rounded-full -mr-48 -mt-48 blur-3xl" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-cyan-400/10 rounded-full -ml-48 -mb-48 blur-3xl" />
       <div className="container mx-auto px-6 lg:px-12 relative z-10 text-center">
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -31,7 +31,7 @@ const Cta = () => {
               Request a Quote
             </Button>
           </div>
-        </motion.div>
+        </Motion.div>
       </div>
     </section>
   );

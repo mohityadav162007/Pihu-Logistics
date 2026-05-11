@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import Section from '../ui/Section';
 
 const Industries = () => {
@@ -20,7 +20,7 @@ const Industries = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {industries.map((ind, index) => (
-          <motion.div
+          <Motion.div
             key={index}
             className={`relative rounded-md overflow-hidden group cursor-pointer h-72 border border-slate-200 ${index === 0 || index === 3 ? 'md:col-span-2 lg:col-span-2' : ''}`}
             initial={{ opacity: 0, y: 20 }}
@@ -38,7 +38,7 @@ const Industries = () => {
               <h4 className="text-xl font-bold text-white tracking-wide">{ind.name}</h4>
               <div className={`w-8 h-1 ${ind.color} mt-3 transform origin-left group-hover:w-16 transition-all duration-500`}></div>
             </div>
-          </motion.div>
+          </Motion.div>
         ))}
       </div>
     </Section>

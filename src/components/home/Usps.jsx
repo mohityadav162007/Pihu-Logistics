@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 import Section from '../ui/Section';
 
@@ -34,7 +34,7 @@ const Usps = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-8">
             {points.map((point, index) => (
-              <motion.div 
+              <Motion.div 
                 key={index} 
                 className="flex items-start"
                 initial={{ opacity: 0, y: 10 }}
@@ -46,7 +46,7 @@ const Usps = () => {
                   <Check className="text-brand-main" size={12} strokeWidth={3} />
                 </div>
                 <span className="ml-3 font-medium text-slate-700 text-sm leading-snug">{point}</span>
-              </motion.div>
+              </Motion.div>
             ))}
           </div>
         </div>

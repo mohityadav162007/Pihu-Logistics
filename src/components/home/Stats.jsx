@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 
 const Stats = () => {
   const stats = [
@@ -28,7 +28,7 @@ const Stats = () => {
     <div className="relative z-20 -mt-10 lg:-mt-16 container mx-auto px-6 lg:px-12">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {stats.map((stat, index) => (
-          <motion.div 
+          <Motion.div 
             key={index}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -45,7 +45,7 @@ const Stats = () => {
             <div className="text-xs text-slate-500 font-medium">
               {stat.description}
             </div>
-          </motion.div>
+          </Motion.div>
         ))}
       </div>
     </div>

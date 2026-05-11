@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Truck } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X } from 'lucide-react';
+import { motion as Motion, AnimatePresence } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
+import { useSiteImage } from '../../hooks/useSiteImage';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const navigate = useNavigate();
+  const logoSrc = useSiteImage('siteLogo');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,14 +34,11 @@ const Navbar = () => {
       <div className="container mx-auto px-6 lg:px-12 flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 bg-brand-dark rounded-full flex items-center justify-center text-white transition-transform group-hover:scale-110">
-            <Truck size={20} fill="currentColor" />
-          </div>
-          <div className="flex flex-col -space-y-1">
-            <span className="text-xl font-bold tracking-tight text-brand-dark uppercase">
-              Pihu <span className="text-brand-blue">Logistics</span>
-            </span>
-          </div>
+          <img
+            src={logoSrc}
+            alt="Pihu Logistics"
+            className="h-12 w-auto max-w-[180px] object-contain transition-transform group-hover:scale-105"
+          />
         </Link>
         
         {/* Desktop Menu */}
@@ -73,7 +72,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
+          <Motion.div 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
@@ -97,7 +96,7 @@ const Navbar = () => {
                 Get Quote
               </button>
             </div>
-          </motion.div>
+          </Motion.div>
         )}
       </AnimatePresence>
     </nav>

@@ -1,10 +1,10 @@
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 
 const CTASection = () => {
   return (
     <section className="py-24 bg-white relative overflow-hidden">
       <div className="container mx-auto px-6 lg:px-12">
-        <motion.div 
+        <Motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -49,7 +49,7 @@ const CTASection = () => {
               </div>
             </div>
           </div>
-        </motion.div>
+        </Motion.div>
       </div>
     </section>
   );

@@ -1,7 +1,9 @@
-import { Truck } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useSiteImage } from '../../hooks/useSiteImage';
 
 const Footer = () => {
+  const logoSrc = useSiteImage('siteLogo');
+
   return (
     <footer className="bg-brand-dark text-slate-400 py-20">
       <div className="container mx-auto px-6 lg:px-12">
@@ -9,12 +11,7 @@ const Footer = () => {
           {/* Logo & About */}
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-3 mb-8 group">
-              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-brand-dark">
-                <Truck size={20} fill="currentColor" />
-              </div>
-              <span className="text-xl font-bold tracking-tight text-white uppercase">
-                Pihu <span className="text-brand-blue">Logistics</span>
-              </span>
+              <img src={logoSrc} alt="Pihu Logistics" className="h-14 w-auto max-w-[190px] rounded-lg bg-white object-contain p-2" />
             </Link>
             <p className="text-sm leading-relaxed mb-8 max-w-xs">
               Technology-driven logistics provider offering end-to-end integrated services from Purchase Order to Proof of Delivery.
@@ -54,6 +51,9 @@ const Footer = () => {
               <div>
                 <div className="text-white font-bold text-[10px] uppercase tracking-widest mb-1.5 grayscale opacity-50">Corporate HQ</div>
                 <div className="font-medium">50,000+ sqft processing hub</div>
+                <a href="tel:+919993552893" className="mt-2 inline-block font-bold text-white hover:text-brand-blue transition-colors">
+                  +91 9993552893
+                </a>
               </div>
             </div>
           </div>

@@ -1,23 +1,25 @@
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import { Warehouse, Truck, Settings, Globe } from 'lucide-react';
-import containerYard from '../../assets/container_yard.png';
+import { useSiteImage } from '../../hooks/useSiteImage';
 
 const ServicesOverview = () => {
+  const overviewImage = useSiteImage('servicesOverviewImage');
+
   return (
     <section className="py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="flex flex-col lg:flex-row gap-16">
           {/* Left Text Content */}
           <div className="lg:w-1/3">
-            <motion.div
+            <Motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               className="text-brand-blue font-bold tracking-widest text-[10px] mb-4 uppercase"
             >
               Services
-            </motion.div>
-            <motion.h2 
+            </Motion.div>
+            <Motion.h2 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -25,8 +27,8 @@ const ServicesOverview = () => {
               className="text-4xl lg:text-5xl font-bold text-brand-dark mb-8 leading-tight tracking-tight"
             >
               Integrated logistics for the way India moves.
-            </motion.h2>
-            <motion.p 
+            </Motion.h2>
+            <Motion.p 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -34,14 +36,14 @@ const ServicesOverview = () => {
               className="text-slate-500 leading-relaxed mb-8"
             >
               Pihu Logistics combines physical infrastructure with process discipline, helping brands manage storage, dispatch, transport and delivery proof from one accountable partner.
-            </motion.p>
+            </Motion.p>
           </div>
 
           {/* Right Grid Content */}
           <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6">
             
             {/* Warehousing Card - Span 2 */}
-            <motion.div 
+            <Motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -57,12 +59,12 @@ const ServicesOverview = () => {
                 </p>
               </div>
               <div className="md:w-2/5 h-64 md:h-auto overflow-hidden">
-                <img src={containerYard} alt="Warehouse" className="w-full h-full object-cover" />
+                <img src={overviewImage} alt="Warehouse" className="w-full h-full object-cover" />
               </div>
-            </motion.div>
+            </Motion.div>
 
             {/* Trucking Card */}
-            <motion.div 
+            <Motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -76,10 +78,10 @@ const ServicesOverview = () => {
               <p className="text-slate-500 text-sm leading-relaxed">
                 Reliable transport planning for local, regional and long-haul distribution across Indian trade routes.
               </p>
-            </motion.div>
+            </Motion.div>
 
             {/* Customized Logistics Card */}
-            <motion.div 
+            <Motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -93,10 +95,10 @@ const ServicesOverview = () => {
               <p className="text-slate-300 text-sm leading-relaxed">
                 SOP-led fulfilment models for marketplace sellers, D2C brands, distributors and B2B dispatch teams.
               </p>
-            </motion.div>
+            </Motion.div>
 
             {/* Digital Integrations Card - Span 2 */}
-            <motion.div 
+            <Motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -115,7 +117,7 @@ const ServicesOverview = () => {
               <button className="bg-white text-brand-blue px-8 py-3 rounded-xl font-bold transition-transform hover:scale-105 active:scale-95 text-sm whitespace-nowrap">
                 Discuss Scope
               </button>
-            </motion.div>
+            </Motion.div>
 
           </div>
         </div>

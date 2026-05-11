@@ -1,8 +1,8 @@
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 
 const Section = ({ children, className = '', id = '' }) => {
   return (
-    <motion.section
+    <Motion.section
       id={id}
       className={`py-16 lg:py-32 ${className}`}
       initial={{ opacity: 0, y: 30 }}
@@ -13,7 +13,7 @@ const Section = ({ children, className = '', id = '' }) => {
       <div className="container mx-auto px-6 lg:px-12">
         {children}
       </div>
-    </motion.section>
+    </Motion.section>
   );
 };
 

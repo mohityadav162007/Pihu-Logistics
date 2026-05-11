@@ -1,9 +1,10 @@
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import warehouseHero from '../../assets/warehouse_hero.png';
+import { useSiteImage } from '../../hooks/useSiteImage';
 
 const Hero = () => {
   const navigate = useNavigate();
+  const heroImage = useSiteImage('heroImage');
 
   return (
     <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-brand-light">
@@ -15,7 +16,7 @@ const Hero = () => {
         <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-12">
           {/* Left Content */}
           <div className="flex-1 max-w-2xl">
-            <motion.div
+            <Motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
@@ -23,9 +24,9 @@ const Hero = () => {
             >
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               <span className="text-[10px] font-bold tracking-widest uppercase text-slate-500">Premium Logistics Provider</span>
-            </motion.div>
+            </Motion.div>
             
-            <motion.h1 
+            <Motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
@@ -33,9 +34,9 @@ const Hero = () => {
             >
               Logistics with a <br />
               <span className="text-brand-blue">Digital Advantage.</span>
-            </motion.h1>
+            </Motion.h1>
             
-            <motion.p 
+            <Motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -43,9 +44,9 @@ const Hero = () => {
             >
               End-to-end integrated services from Purchase Order to Proof of Delivery. 
               Built for Indian businesses that need reliable warehousing, trucking and cloud-based visibility.
-            </motion.p>
+            </Motion.p>
             
-            <motion.div 
+            <Motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
@@ -63,25 +64,25 @@ const Hero = () => {
               >
                 Explore Services
               </button>
-            </motion.div>
+            </Motion.div>
           </div>
 
           {/* Right Visuals */}
           <div className="flex-1 relative w-full max-w-2xl">
-            <motion.div
+            <Motion.div
               initial={{ opacity: 0, scale: 0.9, rotate: 2 }}
               animate={{ opacity: 1, scale: 1, rotate: 0 }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
               className="relative rounded-3xl p-4 bg-white shadow-2xl overflow-hidden border border-white/50"
             >
               <img 
-                src={warehouseHero} 
+                src={heroImage}
                 alt="Modern Warehouse" 
                 className="w-full h-[450px] object-cover rounded-2xl"
               />
               
               {/* Overlay: 99.9% Badge */}
-              <motion.div 
+              <Motion.div 
                 initial={{ opacity: 0, x: -30, y: 20 }}
                 animate={{ opacity: 1, x: 0, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
@@ -94,10 +95,10 @@ const Hero = () => {
                   <div className="text-xl font-bold text-brand-dark leading-none">99.9%</div>
                   <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">On-time Delivery</div>
                 </div>
-              </motion.div>
+              </Motion.div>
 
               {/* Overlay: Live Tracking */}
-              <motion.div 
+              <Motion.div 
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 1 }}
@@ -111,8 +112,8 @@ const Hero = () => {
                   <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                   <span className="text-[10px] font-bold text-emerald-600 uppercase">Online</span>
                 </div>
-              </motion.div>
-            </motion.div>
+              </Motion.div>
+            </Motion.div>
 
             {/* Decorative Shadow/Glow under the card */}
             <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-[80%] h-20 bg-brand-blue/10 blur-3xl -z-10 rounded-full" />

@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 
 const Workflow = () => {
   const steps = [
@@ -29,15 +29,15 @@ const Workflow = () => {
       <div className="container mx-auto px-6 lg:px-12">
         <div className="flex flex-col lg:flex-row items-center gap-16">
           <div className="lg:w-1/3">
-            <motion.div
+            <Motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               className="text-brand-blue font-bold tracking-widest text-[10px] mb-4 uppercase"
             >
               Digital Workflow
-            </motion.div>
-            <motion.h2 
+            </Motion.div>
+            <Motion.h2 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -45,8 +45,8 @@ const Workflow = () => {
               className="text-4xl font-bold text-brand-dark mb-6 leading-tight tracking-tight"
             >
               From Purchase Order to Proof of Delivery.
-            </motion.h2>
-            <motion.p 
+            </Motion.h2>
+            <Motion.p 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -54,12 +54,12 @@ const Workflow = () => {
               className="text-slate-500 leading-relaxed"
             >
               A disciplined operating rhythm gives your team clarity at every milestone without chasing calls or spreadsheets.
-            </motion.p>
+            </Motion.p>
           </div>
 
           <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6">
             {steps.map((step, index) => (
-              <motion.div
+              <Motion.div
                 key={step.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -75,7 +75,7 @@ const Workflow = () => {
                 
                 {/* Decorative corner element */}
                 <div className="absolute top-0 right-0 w-16 h-16 bg-brand-blue/0 group-hover:bg-brand-blue/[0.02] rounded-tr-3xl transition-colors duration-500" />
-              </motion.div>
+              </Motion.div>
             ))}
           </div>
         </div>

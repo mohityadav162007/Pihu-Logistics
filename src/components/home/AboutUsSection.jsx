@@ -1,7 +1,9 @@
-import { motion } from 'framer-motion';
-import containerYard from '../../assets/container_yard.png';
+import { motion as Motion } from 'framer-motion';
+import { useSiteImage } from '../../hooks/useSiteImage';
 
 const AboutUsSection = () => {
+  const aboutImage = useSiteImage('homeAboutImage');
+
   return (
     <section className="py-24 bg-brand-dark text-white overflow-hidden">
       <div className="container mx-auto px-6 lg:px-12">
@@ -9,15 +11,15 @@ const AboutUsSection = () => {
           
           {/* Left Content */}
           <div className="lg:w-1/2">
-            <motion.div
+            <Motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               className="text-brand-blue font-bold tracking-widest text-[10px] mb-4 uppercase"
             >
               About Us
-            </motion.div>
-            <motion.h2 
+            </Motion.div>
+            <Motion.h2 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -25,8 +27,8 @@ const AboutUsSection = () => {
               className="text-4xl lg:text-5xl font-bold mb-8 leading-tight tracking-tight"
             >
               Built for Indian supply chains that cannot afford guesswork.
-            </motion.h2>
-            <motion.p 
+            </Motion.h2>
+            <Motion.p 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -34,10 +36,10 @@ const AboutUsSection = () => {
               className="text-slate-400 leading-relaxed mb-12 text-lg"
             >
               From purchase order intake to warehouse processing, route coordination and delivery proof, Pihu Logistics gives growing companies a practical operations backbone with registered, accountable infrastructure.
-            </motion.p>
+            </Motion.p>
             
             <div className="grid grid-cols-2 gap-8 pt-8 border-t border-white/10">
-              <motion.div
+              <Motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -45,8 +47,8 @@ const AboutUsSection = () => {
               >
                 <div className="text-4xl font-bold mb-2">50,000+</div>
                 <div className="text-xs text-slate-500 font-bold uppercase tracking-wider">sq ft central processing hub</div>
-              </motion.div>
-              <motion.div
+              </Motion.div>
+              <Motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -54,20 +56,20 @@ const AboutUsSection = () => {
               >
                 <div className="text-4xl font-bold mb-2">100+</div>
                 <div className="text-xs text-slate-500 font-bold uppercase tracking-wider">trained logistics team members</div>
-              </motion.div>
+              </Motion.div>
             </div>
           </div>
 
           {/* Right Image with Overlays */}
           <div className="lg:w-1/2 relative">
-            <motion.div
+            <Motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1 }}
               className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10"
             >
-              <img src={containerYard} alt="Container Yard" className="w-full h-[500px] object-cover opacity-80" />
+              <img src={aboutImage} alt="Container Yard" className="w-full h-[500px] object-cover opacity-80" />
               
               {/* Overlays on the image */}
               <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent" />
@@ -82,7 +84,7 @@ const AboutUsSection = () => {
                   <div className="text-xs font-bold">Certified operations</div>
                 </div>
               </div>
-            </motion.div>
+            </Motion.div>
           </div>
 
         </div>
