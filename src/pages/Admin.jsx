@@ -137,7 +137,7 @@ const Admin = () => {
             <KeyRound size={22} />
           </div>
           <h1 className="text-3xl font-bold text-brand-dark mb-3">Admin Login</h1>
-          <p className="text-sm text-slate-500 mb-8">Enter the password from VITE_ADMIN_PASSWORD.</p>
+          <p className="text-sm text-slate-500 mb-8">Enter your secure administrator password to continue.</p>
           <input
             type="password"
             value={password}
