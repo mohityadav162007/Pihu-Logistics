@@ -21,11 +21,17 @@ const Contact = () => {
     const subject = `Business Inquiry from ${formData.name} (${formData.company})`;
     const body = formData.message;
     
-    // Using Gmail's web compose URL specifically
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipient}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const isAndroid = /Android/i.test(navigator.userAgent);
     
-    // Open Gmail in a new tab
-    window.open(gmailUrl, '_blank');
+    if (isAndroid) {
+      // For Android, use mailto: which triggers the default mail app (usually Gmail)
+      const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailtoLink;
+    } else {
+      // For Desktop, use the Gmail web compose URL
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipient}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.open(gmailUrl, '_blank');
+    }
   };
 
   return (
